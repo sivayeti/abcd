@@ -1,0 +1,91 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
+#include <math.h>
+
+int main()
+{
+     char password[20];
+     int a=1;
+     while(a<2){
+
+           int x=4;
+           int i=0;
+
+           int lc=0;
+           int uc=0;
+           int num=0;
+           int sym=0;
+           int pw;
+           printf("\nEnter Your Password: ");
+           scanf("%s",password);
+           pw = strlen(password);
+           //User must use lower case
+           while(i<pw){
+             if(islower(password[i])){
+             x--;
+             lc++;
+             break;
+             }
+             i++;
+             }
+             i=0;
+             //User must use upper case
+             while(i<pw){
+               if(isupper(password[i])){
+               x--;
+               uc++;
+               break;
+               }
+               i++;
+               }
+               i=0;
+               //User must use number
+            while(i<pw){
+              if(isdigit(password[i])){
+              x--;
+              num++;
+              break;
+              }
+              i++;
+              }
+             i=0;
+             //User must use symbol
+             while(i<pw){
+               if(isalpha(password[i])){
+               }else if(isdigit(password[i])){
+               }else{
+               x--;
+             sym++;
+             break;
+             }
+             i++;
+             }
+             //printf("\nX value is %d",x);
+             if(x==0){
+             printf("Your password is secured!\n");
+             }else{
+             printf("Your password is not secured! Try again\n");
+             a--;
+             if(lc==0){
+             printf("\n You didn't use lower case!\n");
+             }
+             if(uc==0){
+             printf("\n You didn't use upper case!\n");
+             }
+             if(num==0){
+             printf("\n You didn't use number!\n");
+             }
+             if(sym==0){
+             printf("\n You didn't use symbol!\n");
+             }
+             }
+         a++;
+         }
+
+         return 0;
+}
+
+
+
